@@ -5,90 +5,182 @@
 <meta name="description" content="Keyword research plus 10 SEO blog posts written for your business, in your voice. Launch price $99.99. Grant Studios, Ghana.">
 <meta property="og:title" content="SEO Blog Starter | Grant Studios">
 <meta property="og:description" content="See the Google searches you're missing, then win them with 10 posts written for your business.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--g:#0f7b5f;--gd:#0a5743;--ink:#1d2433;--soft:#f2f7f5;--line:#d6e3de}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.6}
-.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-header{border-bottom:3px solid var(--g)}header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-.logo{font-weight:800;color:var(--g);letter-spacing:1px;text-decoration:none}
-.btn{display:inline-block;background:var(--g);color:#fff;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:600}
-.btn:hover{background:var(--gd)}.btn.ghost{background:transparent;color:var(--g);border:2px solid var(--g)}
-.hero{padding:72px 0 56px}.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:0 0 16px}
-.hero p{font-size:1.2rem;max-width:640px;color:#444}.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-section{padding:56px 0}section.alt{background:var(--soft)}h2{font-size:1.8rem;margin:0 0 18px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px}.card b{color:var(--g)}
-.searches{font-family:ui-monospace,monospace;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 22px}
-.searches div{padding:6px 0;border-bottom:1px dashed var(--line)}.searches div:last-child{border:0}
-.price{background:var(--g);color:#fff;border-radius:14px;padding:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
-.price .big{font-size:3rem;font-weight:800}.price s{opacity:.7;font-size:1.4rem;margin-right:10px}
-.price .btn{background:#fff;color:var(--g)}
-.proof{border-left:5px solid var(--g);background:#fff;padding:22px 26px;border-radius:8px}
-ol.steps{counter-reset:s;list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-ol.steps li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
-ol.steps li:before{content:counter(s);display:inline-block;background:var(--g);color:#fff;border-radius:50%;width:28px;height:28px;text-align:center;line-height:28px;font-weight:700;margin-bottom:8px}
-footer{padding:30px 0;color:#666;font-size:.9rem;border-top:1px solid var(--line)}
+:root{--g:#0f7b5f;--gl:#3fd6a6;--ink:#121826;--paper:#f6f3ec;--line:#ddd6c8;--mut:#5b6170}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+.serif{font-family:Fraunces,Georgia,serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
 a{color:var(--g)}
+.btn{display:inline-block;background:var(--g);color:#fff;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,123,95,.3)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+#bar{position:fixed;top:0;left:0;height:3px;background:var(--g);width:0;z-index:50}
+header{position:fixed;top:0;left:0;right:0;z-index:40;backdrop-filter:blur(10px);background:rgba(246,243,236,.8);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:800;letter-spacing:3px;font-size:.85rem;color:var(--ink);text-decoration:none}
+header .btn{padding:9px 18px;font-size:.9rem}
+/* receipts counter: signature move */
+#receipts{position:fixed;left:18px;bottom:18px;z-index:40;background:var(--ink);color:#fff;border-radius:12px;padding:10px 14px;font-size:.78rem;max-width:230px;opacity:0;transform:translateY(10px);transition:.4s}
+#receipts.on{opacity:1;transform:none}#receipts b{color:var(--gl);font-size:1rem}
+#receipts small{display:block;color:#aab;margin-top:2px}
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 0 60px;position:relative;overflow:hidden}
+.kicker{text-transform:uppercase;letter-spacing:4px;font-size:.75rem;color:var(--g);font-weight:700}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5.6rem);line-height:1.02;margin:14px 0 26px;font-weight:700}
+.hero h1 em{font-style:italic;color:var(--g)}
+.sbox{background:#fff;border:1px solid var(--line);border-radius:999px;padding:16px 24px;max-width:620px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 50px rgba(18,24,38,.08)}
+.sbox svg{flex:none}.sbox span{font-size:1.1rem;min-height:1.6em}
+.caret{display:inline-block;width:2px;height:1.2em;background:var(--g);vertical-align:-3px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.hero p.lead{font-size:1.2rem;max-width:600px;color:var(--mut);margin:26px 0}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.blob{position:absolute;right:-12vw;top:12vh;width:52vw;height:52vw;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(63,214,166,.35),rgba(15,123,95,.08) 60%,transparent 70%);z-index:-1}
+/* pinned search scene */
+.pin{height:300vh;position:relative;background:var(--ink);color:#fff}
+.stage{position:sticky;top:0;height:100vh;display:flex;align-items:center}
+.stage .wrap{width:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.stage h2{font-size:clamp(1.8rem,4vw,3rem);line-height:1.1;margin:0 0 14px}
+.stage p{color:#b9bfcc}
+.serp{background:#1c2334;border-radius:16px;padding:22px;min-height:340px}
+.q{font-family:ui-monospace,monospace;color:var(--gl);margin-bottom:14px;min-height:1.5em}
+.res{border-top:1px solid #2c3550;padding:12px 0;opacity:.15;transform:translateX(20px);transition:.5s}
+.res.on{opacity:1;transform:none}.res b{display:block;color:#fff}.res small{color:#8b93a8}
+.res.you b{color:#ff8f7a}
+.dots{display:flex;gap:6px;margin-top:16px}.dots i{width:28px;height:4px;border-radius:2px;background:#2c3550}.dots i.on{background:var(--gl)}
+/* sections */
+section{padding:110px 0}
+h2.big{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:0 0 22px;max-width:820px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:34px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;position:relative;overflow:hidden;transition:transform .3s}
+.card:hover{transform:translateY(-4px)}
+.card:after{content:"";position:absolute;inset:auto -40% -60% auto;width:160px;height:160px;border-radius:50%;background:rgba(63,214,166,.18);transition:.4s}
+.card:hover:after{inset:auto -20% -40% auto}
+.card .n{font-family:Fraunces,serif;font-size:2.4rem;color:var(--g);line-height:1}
+.card h3{margin:10px 0 6px}
+.price{margin-top:60px;background:var(--g);color:#fff;border-radius:22px;padding:44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.price .amt{font-family:Fraunces,serif;font-size:clamp(3rem,8vw,5rem);font-weight:700;line-height:1}
+.price s{opacity:.6;font-size:1.6rem;margin-right:12px}
+.price .btn{background:#fff;color:var(--g)}
+/* proof */
+.proof{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.stat{font-family:Fraunces,serif;font-size:clamp(4rem,12vw,8rem);line-height:.9;color:var(--g)}
+.receipt{font-size:.8rem;color:var(--mut);border-left:2px solid var(--g);padding-left:10px;margin-top:10px}
+/* horizontal steps */
+.hz{height:260vh;position:relative}
+.hz .stage{overflow:hidden}
+.track{display:flex;gap:24px;will-change:transform;padding-left:max(22px,calc((100vw - 1080px)/2 + 22px))}
+.step{flex:none;width:min(78vw,420px);height:56vh;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.step .n{font-family:Fraunces,serif;font-size:5rem;color:var(--g);line-height:1}
+.step h3{font-size:1.6rem;margin:0}
+.hz h2{position:absolute;top:110px;left:0;right:0}
+.final{background:var(--ink);color:#fff;text-align:center}
+.final p{color:#b9bfcc}
+.final .btn.ghost{color:#fff;border-color:#fff}
+footer{padding:30px 0;color:var(--mut);font-size:.85rem;text-align:center}
+@media(max-width:800px){.stage .wrap,.proof{grid-template-columns:1fr}.stage h2{font-size:1.7rem}.serp{min-height:280px}.hz h2{top:80px}.step{height:48vh}#receipts{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv,.res{opacity:1;transform:none}}
 </style></head><body>
-<header><div class="wrap"><a class="logo" href="#">GRANT STUDIOS</a><a class="btn" href="#start">Get started</a></div></header>
+<div id="bar"></div>
+<header><div class="wrap"><a class="logo" href="#">GRANT STUDIOS</a><a class="btn" href="#start">Free gap list</a></div></header>
+<div id="receipts"><b id="rc">0 of 3</b> claims backed by a receipt<small>Nothing here is asserted without a source.</small></div>
 
-<div class="hero"><div class="wrap">
-<h1>Your customers are already searching.<br>Let them find you.</h1>
-<p>The SEO Blog Starter: keyword research plus 10 blog posts written for your business, in your voice, so you show up for the searches your competitors are winning today.</p>
+<div class="hero"><div class="blob"></div><div class="wrap">
+<div class="kicker">SEO Blog Starter · Grant Studios</div>
+<h1 class="serif">Your customers are already searching.<br><em>Let them find you.</em></h1>
+<div class="sbox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5b6170" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span><span id="tw"></span><i class="caret"></i></span></div>
+<p class="lead">Keyword research plus 10 blog posts written for your business, in your voice, so you show up for the searches your competitors are winning today.</p>
 <div class="cta-row"><a class="btn" href="#start">Get my free search gap list</a><a class="btn ghost" href="#offer">See the offer</a></div>
 </div></div>
 
-<section class="alt"><div class="wrap">
-<h2>Most small businesses rank for their own name. That's it.</h2>
-<p>Before you buy anything, we show you the searches you're missing. For a tour operator selling Ghana trips, that looks like:</p>
-<div class="searches">
-<div>what to pack for ghana in december</div>
-<div>is togo and benin safe for american tourists</div>
-<div>best time to visit cape coast castle</div>
-</div>
-<p>Each one is a person planning to buy. If they land on someone else's guide, they often book with someone else too. One good post can catch that search for years.</p>
-</div></section>
+<div class="pin" id="pin"><div class="stage"><div class="wrap">
+<div><div class="kicker" style="color:var(--gl)">Scroll to search</div>
+<h2 class="serif">Most small businesses rank for their own name. That's it.</h2>
+<p>Each of these is a person planning to buy. If they land on someone else's guide, they often book with someone else too. One good post can catch that search for years.</p>
+<div class="dots"><i></i><i></i><i></i></div></div>
+<div class="serp"><div class="q" id="q"></div>
+<div class="res"><b>A competitor's travel guide</b><small>Ranks #1 · answers the question · gets the click</small></div>
+<div class="res"><b>A big directory site</b><small>Ranks #2 · lists your rivals</small></div>
+<div class="res"><b>Another tour company's blog</b><small>Ranks #3 · takes the booking</small></div>
+<div class="res you"><b>Your business</b><small>Not on page one, because you have no page that answers it</small></div>
+</div></div></div></div>
 
 <section id="offer"><div class="wrap">
-<h2>What you get</h2>
+<div class="kicker rv">What you get</div>
+<h2 class="big serif rv">Ten posts that answer the exact questions your buyers type.</h2>
 <div class="grid">
-<div class="card"><b>Keyword research</b><br>The real questions your customers type into Google, picked for what you sell.</div>
-<div class="card"><b>10 SEO blog posts</b><br>Written on-brand for your audience, in your voice.</div>
-<div class="card"><b>Search-ready setup</b><br>Titles, meta descriptions, headings and links to your booking or service pages.</div>
-<div class="card"><b>Published for you</b><br>Ready to post, or we publish them on your WordPress site.</div>
+<div class="card rv"><div class="n">01</div><h3>Keyword research</h3>The real questions your customers type into Google, picked for what you sell.</div>
+<div class="card rv"><div class="n">10</div><h3>SEO blog posts</h3>Written on-brand for your audience, in your voice.</div>
+<div class="card rv"><div class="n">✓</div><h3>Search-ready setup</h3>Titles, meta descriptions, headings, and links to your booking or service pages.</div>
+<div class="card rv"><div class="n">→</div><h3>Published for you</h3>Ready to post, or we publish them on your WordPress site.</div>
 </div>
-<div style="height:28px"></div>
-<div class="price"><div><div style="font-weight:600">Launch offer · about $10 a post</div><div><s>$150</s><span class="big">$99.99</span></div><div>One-time. No subscription. Paid in USD.</div></div><a class="btn" href="#start">Start with a free gap list</a></div>
+<div class="price rv"><div><div style="font-weight:600;opacity:.85">Launch offer · about $10 a post</div><div><s>$150</s><span class="amt" id="amt">$150</span></div><div style="opacity:.85">One-time. No subscription. Paid in USD.</div></div><a class="btn" href="#start">Start with a free gap list</a></div>
 </div></section>
 
-<section class="alt"><div class="wrap">
-<h2>Proof: Best of Africa Travels</h2>
-<div class="proof"><p><b>bestofafricatravels.com</b> · tour operator, Tema, Ghana</p>
-<p>Carl Grant rebuilt this site from bare bones and wrote its blog himself: as of October 2026, 65 of its 67 live posts carry his byline. The site now draws visitors from Google search, and its first client from the website has booked.</p>
-<p><a href="https://bestofafricatravels.com/" target="_blank" rel="noopener">Read the blog and judge the work yourself →</a></p></div>
+<section style="background:#fff"><div class="wrap proof">
+<div class="rv"><div class="kicker">Proof · Best of Africa Travels</div>
+<h2 class="big serif">We did it for a Ghana tour operator first.</h2>
+<p>Carl Grant rebuilt bestofafricatravels.com from bare bones and wrote its blog himself. The site now draws visitors from Google search, and its first client from the website has booked.</p>
+<div class="receipt" data-r>Receipt: the bylines are public. <a href="https://bestofafricatravels.com/" target="_blank" rel="noopener">Read the blog and judge the work →</a></div></div>
+<div class="rv" style="text-align:center"><div class="stat"><span id="posts">0</span><span style="font-size:.4em;color:var(--mut)"> of 67</span></div><p>live posts carry Carl's byline (October 2026)</p>
+<div class="receipt" data-r style="text-align:left">Receipt: counted on the live site, October 2026.</div></div>
 </div></section>
 
-<section><div class="wrap">
-<h2>How it works</h2>
-<ol class="steps">
-<li><b>Free gap list</b><br>We send the searches you're missing and who's winning them.</li>
-<li><b>Short call</b><br>Pick the topics that matter for your business.</li>
-<li><b>We write</b><br>10 posts delivered for your review.</li>
-<li><b>Go live</b><br>Published and ready for Google.</li>
-</ol>
-<p style="margin-top:22px"><b>Want more later?</b> 100-post and 1,000-post packages, a Google Business Profile audit, a website refresh, and monthly AI engines for social media and outreach.</p>
-</div></section>
+<div class="hz" id="hz"><div class="stage"><h2 class="big serif wrap">How it works</h2><div class="track" id="track">
+<div class="step"><div class="n">1</div><div><h3>Free gap list</h3><p>We send the searches you're missing and who's winning them. No payment, no obligation.</p></div></div>
+<div class="step"><div class="n">2</div><div><h3>Short call</h3><p>Pick the topics that matter most for your business.</p></div></div>
+<div class="step"><div class="n">3</div><div><h3>We write</h3><p>10 posts delivered for your review.</p></div></div>
+<div class="step"><div class="n">4</div><div><h3>Go live</h3><p>Published and ready for Google. Want more later? 100 or 1,000 posts, a Google Business Profile audit, a website refresh, or monthly AI engines.</p></div></div>
+</div></div></div>
 
-<section class="alt" id="start"><div class="wrap" style="text-align:center">
-<h2>Get your free search gap list</h2>
-<p>Send your website and we'll reply with the searches you're missing. No obligation.</p>
-<div class="cta-row" style="justify-content:center">
+<section class="final" id="start"><div class="wrap">
+<div class="kicker rv" style="color:var(--gl)">Start here</div>
+<h2 class="big serif rv" style="margin:14px auto 18px">See the searches you're missing. Free.</h2>
+<p class="rv" data-r>Send your website and we'll reply with your search gap list. Receipt: you see the gaps before you pay a cent.</p>
+<div class="cta-row rv" style="justify-content:center;margin-top:26px">
 <a class="btn" href="mailto:acquahgrantcarl@gmail.com?subject=Free%20search%20gap%20list&body=My%20website%3A%20">Email Carl</a>
 <a class="btn ghost" href="https://wa.me/233559328385?text=Hi%20Carl%2C%20I%27d%20like%20a%20free%20search%20gap%20list%20for%20my%20website%3A%20">WhatsApp Carl</a>
 </div>
-<p style="margin-top:14px">acquahgrantcarl@gmail.com · +233 55 932 8385</p>
+<p style="margin-top:18px">acquahgrantcarl@gmail.com · +233 55 932 8385</p>
 </div></section>
+<footer>© 2026 Grant Studios · Carl Grant · Tema, Ghana</footer>
 
-<footer><div class="wrap">© 2026 Grant Studios · Carl Grant · Tema, Ghana</div></footer>
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const qs=["what to pack for ghana in december","is togo and benin safe for american tourists","best time to visit cape coast castle"];
+// hero typewriter
+(function(){const el=document.getElementById('tw');if(reduce){el.textContent=qs[0];return}let i=0,j=0,del=false;
+(function tick(){const s=qs[i];el.textContent=s.slice(0,j);if(!del&&j<s.length){j++;setTimeout(tick,55)}else if(!del){del=true;setTimeout(tick,1600)}else if(j>0){j--;setTimeout(tick,22)}else{del=false;i=(i+1)%qs.length;setTimeout(tick,300)}})()})();
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,k)=>{el.style.transitionDelay=(el.classList.contains('card')?(k%4)*0.12:0)+'s';io.observe(el)});
+// receipts counter
+const rs=[...document.querySelectorAll('[data-r]')],seen=new Set(),rc=document.getElementById('rc'),rb=document.getElementById('receipts');
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){seen.add(e.target);rc.textContent=seen.size+' of '+rs.length}}),{threshold:.6});rs.forEach(r=>ro.observe(r));
+function prog(el){const r=el.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)))}
+const pin=document.getElementById('pin'),q=document.getElementById('q'),res=[...pin.querySelectorAll('.res')],dots=[...pin.querySelectorAll('.dots i')];
+const hz=document.getElementById('hz'),track=document.getElementById('track'),amt=document.getElementById('amt'),posts=document.getElementById('posts');
+let lastQ=-1;
+function onScroll(){
+ const h=document.documentElement;document.getElementById('bar').style.width=(h.scrollTop/(h.scrollHeight-innerHeight)*100)+'%';
+ rb.classList.toggle('on',scrollY>innerHeight*.6);
+ // pinned search scene: 3 queries, each types in and fills results
+ const p=prog(pin),seg=Math.min(2,Math.floor(p*3)),lp=(p*3-seg);
+ if(seg!==lastQ){lastQ=seg}
+ const s=qs[seg];q.textContent='› '+s.slice(0,Math.ceil(s.length*Math.min(1,lp*2.2)));
+ res.forEach((r,k)=>r.classList.toggle('on',lp>0.45+k*0.13||(seg<2&&false)));
+ dots.forEach((d,k)=>d.classList.toggle('on',k<=seg&&p>0));
+ // horizontal steps
+ const hp=prog(hz);track.style.transform='translateX('+(-hp*Math.max(0,track.scrollWidth-innerWidth+60))+'px)';
+ // price drop + posts counter, tied to visibility
+ const pr=amt.getBoundingClientRect(),t=Math.min(1,Math.max(0,(innerHeight-pr.top)/(innerHeight*.5)));
+ amt.textContent='$'+(150-50.01*t).toFixed(2).replace('.00','');
+ const pp=posts.getBoundingClientRect(),t2=Math.min(1,Math.max(0,(innerHeight-pp.top)/(innerHeight*.55)));posts.textContent=Math.round(65*t2);
+}
+if(reduce){q.textContent='› '+qs[0];res.forEach(r=>r.classList.add('on'));amt.textContent='$99.99';posts.textContent='65';addEventListener('scroll',()=>{rb.classList.toggle('on',scrollY>innerHeight*.6)})}
+else{addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll()}
+</script>
 </body></html>
