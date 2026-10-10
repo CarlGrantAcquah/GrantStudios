@@ -1,0 +1,41 @@
+# Deploys GitHub Pages: keeps the current live homepage (static build from commit dde985f)
+# and adds static landing pages (seo-blog-starter/) from main.
+name: Deploy Pages (homepage + landing pages)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          git archive dde985f | tar -x -C _site
+          rm -rf _site/.github
+          cp -r seo-blog-starter _site/
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+      - id: deployment
+        uses: actions/deploy-pages@v4
